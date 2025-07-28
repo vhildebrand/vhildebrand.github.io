@@ -1,46 +1,72 @@
-<!-- index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Your Name</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <p class="tagline">
-    I’m <strong>Your Name</strong>, a <em>software & ML engineer</em> living in Austin.
-    <a href="about.html">About</a> · <a href="mailto:you@example.com">Contact</a>
-  </p>
 
-  <nav class="filter">
-    View:
-    <button data-tag="*">All</button>
-    <button data-tag="opensource">Open Source</button>
-    <button data-tag="ml">ML</button>
-    <button data-tag="writing">Writing</button>
-  </nav>
-</header>
+    <header>
+        <div class="header-left">
+            <h1>Your Name</h1>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div id="clock"></div>
+        </div>
+    </header>
 
-<main id="projects">
-  <!-- Example project block -->
-  <section class="project" data-tags="opensource ml">
-    <hr>
-    <h2><span class="year">2025</span> My CUDA‑for‑R Library</h2>
+    <main>
+        <div class="project">
+            <div class="project-year">2025</div>
+            <div class="project-details">
+                <h2>Project Title 1</h2>
+                <p>A short description of your project. This text introduces the work and the ideas behind it.</p>
+                
+                <img src="https://via.placeholder.com/800x600" alt="A descriptive caption for your project image.">
+                
+                <div class="more-content">
+                    <p>More details about your project can go here. You can add more text and even more images in this section.</p>
+                </div>
+                <a href="#" class="toggle-more">More</a>
+            </div>
+        </div>
 
-    <details open>
-      <summary>2000×2000 tensor ops now run 38× faster on a 4090.</summary>
-      <p>
-        Benchmarks, kernel notes, and why 64‑bit stride isn’t needed on consumer GPUs.
-      </p>
-      <p><a href="https://github.com/you/r‑cuda">Source →</a></p>
-    </details>
-  </section>
+        <div class="project">
+            <div class="project-year">2024</div>
+            <div class="project-details">
+                <h2>Project Title 2</h2>
+                <p>A short description of another project.</p>
+                
+                 <img src="https://via.placeholder.com/800x500" alt="A descriptive caption for the second project.">
 
-  <!-- Duplicate <section> blocks per project -->
-</main>
+                 <div class="more-content">
+                    <p>More details about this second project can go here.</p>
+                </div>
+                <a href="#" class="toggle-more">More</a>
+            </div>
+        </div>
+        </main>
 
-<script src="main.js"></script>
+    <footer>
+        <nav>
+            <span>View:</span>
+            <a href="#">All</a>
+            <a href="#">Category 1</a>
+            <a href="#">Category 2</a>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
