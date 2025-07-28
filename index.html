@@ -7,65 +7,35 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&family=Roboto+Mono&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="header-left">
-            <h1>Your Name</h1>
-            <nav>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </nav>
-        </div>
-        <div class="header-right">
-            <div id="clock"></div>
-        </div>
-    </header>
-
-    <main>
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 1</h2>
-                <p>A short description of your project. This text introduces the work and the ideas behind it.</p>
-                
-                <img src="https://via.placeholder.com/800x600" alt="A descriptive caption for your project image.">
-                
-                <div class="more-content">
-                    <p>More details about your project can go here. You can add more text and even more images in this section.</p>
+    <div class="container">
+        <div class="left-panel">
+            <header>
+                <div class="bio">
+                    <p>Your Name is a designer, artist, and maker from [Your Location], based in [Current City]. <a href="#">About</a>, <a href="#">Contact</a></p>
                 </div>
-                <a href="#" class="toggle-more">More</a>
+                <div class="filters">
+                    <span>View:</span>
+                    <a href="#">All</a>, <a href="#">Objects</a>, <a href="#">Graphics</a>, <a href="#">Screens</a>, <a href="#">Misc</a>.
+                </div>
+            </header>
+
+            <main class="projects-list">
+                </main>
+        </div>
+
+        <div class="right-panel">
+            <div class="time" id="clock"></div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/1200x800/f0f0f0/ccc?text=Select+a+project" alt="Project image" id="project-image">
             </div>
         </div>
-
-        <div class="project">
-            <div class="project-year">2024</div>
-            <div class="project-details">
-                <h2>Project Title 2</h2>
-                <p>A short description of another project.</p>
-                
-                 <img src="https://via.placeholder.com/800x500" alt="A descriptive caption for the second project.">
-
-                 <div class="more-content">
-                    <p>More details about this second project can go here.</p>
-                </div>
-                <a href="#" class="toggle-more">More</a>
-            </div>
-        </div>
-        </main>
-
-    <footer>
-        <nav>
-            <span>View:</span>
-            <a href="#">All</a>
-            <a href="#">Category 1</a>
-            <a href="#">Category 2</a>
-        </nav>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
