@@ -1,5 +1,6 @@
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Use Manrope as the primary font */
+    font-family: 'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background-color: #fff;
     color: #000;
@@ -29,7 +30,8 @@ header nav a {
 }
 
 #clock {
-    font-family: 'Courier New', Courier, monospace;
+    /* Use a monospace font for the clock */
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
 .project {
@@ -40,7 +42,7 @@ header nav a {
 .project-year {
     width: 100px;
     flex-shrink: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
 .project-details h2 {
@@ -50,7 +52,15 @@ header nav a {
 }
 
 .project-details p {
-    margin: 0;
+    margin: 0 0 1rem 0; /* Add margin to the bottom of paragraphs */
+}
+
+/* --- New Image Styles --- */
+.project-details img {
+    max-width: 100%; /* Ensure image is responsive and doesn't overflow its container */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Remove extra space below the image */
+    margin-bottom: 1rem; /* Add space below the image */
 }
 
 .more-content {
