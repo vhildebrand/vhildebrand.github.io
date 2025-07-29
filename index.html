@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aleksei Miles - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- PhotoSwipe CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.2/dist/photoswipe.css">
 </head>
 <body>
 
@@ -21,78 +23,179 @@
         </div>
     </header>
 
-    <main>
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 1</h2>
-                <p>A short description of your project. You can talk about the skills you used and what you learned.</p>
-                <div class="more-content">
-                    <p>More details about your project can go here. This part is initially hidden.</p>
+        <div class="project" data-aos="fade-up">
+            <div class="project-content">
+                <div class="project-description">
+                    <div class="project-year">an ai-powered piano instruction software suite</div>
+                    <h2>Cadence</h2>
+                    <p>an ai-powered piano instruction software suite</p>
+                    <div class="more-content">
+                        <p>Built with D3.js, Flask, PostgreSQL. Features interactive charts, real-time data streaming, export capabilities, and user customization options.</p>
+                    </div>
+                    <a href="#" class="toggle-more">More</a>
+                    <div class="project-tags">
+                        <span class="tag">typescript</span>
+                        <span class="tag">python</span>
+                        <span class="tag">postgreSQL</span>
+                        <span class="tag">kokoro</span>
+                    </div>
                 </div>
-                <a href="#" class="toggle-more">More</a>
+                <div class="project-images">
+                    <div class="image-container" data-pswp-uid="2">
+                        <a href="https://via.placeholder.com/1200x800/555/fff?text=Dashboard+Main" 
+                           data-pswp-width="1200" 
+                           data-pswp-height="800"
+                           data-index="0">
+                            <img src="CADENCE_piano.png" 
+                                 alt="Data Dashboard Main View" 
+                                 class="project-image">
+                        </a>
+                        <a href="https://via.placeholder.com/1200x800/666/fff?text=Dashboard+Analytics" 
+                           data-pswp-width="1200" 
+                           data-pswp-height="800"
+                           data-index="1">
+                            <img src="CADENCE_lessons.png" 
+                                 alt="Dashboard Analytics View" 
+                                 class="project-image project-image-secondary">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 2</h2>
-                <p>A short description of another project.</p>
-                 <div class="more-content">
-                    <p>More details about your project can go here. This part is initially hidden.</p>
+        <div class="project" data-aos="fade-up">
+            <div class="project-content">
+                <div class="project-description">
+                    <div class="project-year">an extendable framework for text-to-3d generation</div>
+                    <h2>VibeCad</h2>
+                    <p>an extendable framework for text-to-3d generation</p>
+                    <div class="more-content">
+                        <p>an extendable framework for text-to-3d generation</p>
+                    </div>
+                    <a href="#" class="toggle-more">More</a>
+                    <div class="project-tags">
+                        <span class="tag">typescript</span>
+                        <span class="tag">react</span>
+                        <span class="tag">babylon.js</span>
+                        <span class="tag">mcp</span>
+                    </div>
                 </div>
-                <a href="#" class="toggle-more">More</a>
+                <div class="project-images">
+                    <div class="image-container" data-pswp-uid="3">
+                        <a href="https://via.placeholder.com/800x1200/777/fff?text=Task+Manager+App" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="0">
+                            <img src="VIBECAD_shapes.png" 
+                                 alt="Task Manager Mobile App" 
+                                 class="project-image">
+                        </a>
+                        <a href="https://via.placeholder.com/800x1200/888/fff?text=Task+Details" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="1">
+                            <img src="https://via.placeholder.com/200x300/888/fff?text=Details" 
+                                 alt="Task Details View" 
+                                 class="project-image project-image-secondary">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 2</h2>
-                <p>A short description of another project.</p>
-                 <div class="more-content">
-                    <p>More details about your project can go here. This part is initially hidden.</p>
+        <div class="project" data-aos="fade-up">
+            <div class="project-content">
+                <div class="project-description">
+                    <div class="project-year">a city-sim with agentic npcs who remember their past</div>
+                    <h2>Heartwood Valley</h2>
+                    <p>a city-sim with agentic npcs who remember their past</p>
+                    <div class="more-content">
+                        <p>Developed with React Native, Firebase. Includes offline functionality, push notifications, team collaboration, and task analytics.</p>
+                    </div>
+                    <a href="#" class="toggle-more">More</a>
+                    <div class="project-tags">
+                        <span class="tag">phaser</span>
+                        <span class="tag">pgvector</span>
+                        <span class="tag">agentic frameworks</span>
+                    </div>
                 </div>
-                <a href="#" class="toggle-more">More</a>
+                <div class="project-images">
+                    <div class="image-container" data-pswp-uid="3">
+                        <a href="https://via.placeholder.com/800x1200/777/fff?text=Task+Manager+App" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="0">
+                            <img src="DATING_city.png" 
+                                 alt="Task Manager Mobile App" 
+                                 class="project-image">
+                        </a>
+                        <a href="https://via.placeholder.com/800x1200/888/fff?text=Task+Details" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="1">
+                            <img src="DATING_pvp.png" 
+                                 alt="Task Details View" 
+                                 class="project-image project-image-secondary">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 2</h2>
-                <p>A short description of another project.</p>
-                 <div class="more-content">
-                    <p>More details about your project can go here. This part is initially hidden.</p>
-                </div>
-                <a href="#" class="toggle-more">More</a>
-            </div>
-        </div>
 
-        <div class="project">
-            <div class="project-year">2025</div>
-            <div class="project-details">
-                <h2>Project Title 2</h2>
-                <p>A short description of another project.</p>
-                 <div class="more-content">
-                    <p>More details about your project can go here. This part is initially hidden.</p>
+        <div class="project" data-aos="fade-up">
+            <div class="project-content">
+                <div class="project-description">
+                    <div class="project-year">a gpu parallelization library for the R programming language</div>
+                    <h2>Acedia-R</h2>
+                    <p>a gpu parallelization library for the R programming language</p>
+                    <div class="more-content">
+                        <p>Developed with React Native, Firebase. Includes offline functionality, push notifications, team collaboration, and task analytics.</p>
+                    </div>
+                    <a href="#" class="toggle-more">More</a>
+                    <div class="project-tags">
+                        <span class="tag">R</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">CUDA</span>
+                    </div>
                 </div>
-                <a href="#" class="toggle-more">More</a>
+                <div class="project-images">
+                    <div class="image-container" data-pswp-uid="3">
+                        <a href="https://via.placeholder.com/800x1200/777/fff?text=Task+Manager+App" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="0">
+                            <img src="ACEDIA_linalg.png" 
+                                 alt="Task Manager Mobile App" 
+                                 class="project-image">
+                        </a>
+                        <a href="https://via.placeholder.com/800x1200/888/fff?text=Task+Details" 
+                           data-pswp-width="800" 
+                           data-pswp-height="1200"
+                           data-index="1">
+                            <img src="ACEDIA_matmul.png" 
+                                 alt="Task Details View" 
+                                 class="project-image project-image-secondary">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        </main>
+    </main>
 
     <footer>
         <nav>
             <span>View:</span>
-            <a href="#">All</a>
-            <a href="#">Category 1</a>
-            <a href="#">Category 2</a>
-            <a href="#">Category 3</a>
+            <a href="#" data-filter="all">All</a>
+            <a href="#" data-filter="web">Web</a>
+            <a href="#" data-filter="mobile">Mobile</a>
+            <a href="#" data-filter="data">Data</a>
         </nav>
     </footer>
 
+    <!-- PhotoSwipe JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.2/dist/photoswipe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.2/dist/photoswipe-lightbox.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
