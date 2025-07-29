@@ -38,8 +38,59 @@ function initScrollAnimations() {
     });
 }
 
+// Simple Fallback Lightbox
+function createSimpleLightbox(imageSrc, imageAlt) {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        cursor: pointer;
+    `;
+    
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = imageAlt;
+    img.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 4px;
+    `;
+    
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    
+    overlay.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+    
+    // Close on escape key
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            document.body.removeChild(overlay);
+            document.removeEventListener('keyup', handleEscape);
+        }
+    };
+    document.addEventListener('keyup', handleEscape);
+}
+
 // PhotoSwipe Lightbox
 function initPhotoSwipe() {
+    // Check if PhotoSwipe is loaded
+    if (typeof PhotoSwipeLightbox === 'undefined' || typeof PhotoSwipe === 'undefined') {
+        console.warn('PhotoSwipe not loaded, using fallback lightbox');
+        initFallbackLightbox();
+        return;
+    }
+    
     // Initialize PhotoSwipe for each project
     const imageContainers = document.querySelectorAll('.image-container');
     
@@ -61,21 +112,43 @@ function initPhotoSwipe() {
             links.forEach(link => {
                 items.push({
                     src: link.getAttribute('href'),
-                    w: parseInt(link.getAttribute('data-pswp-width')),
-                    h: parseInt(link.getAttribute('data-pswp-height')),
-                    title: link.querySelector('img').getAttribute('alt')
+                    w: parseInt(link.getAttribute('data-pswp-width')) || 800,
+                    h: parseInt(link.getAttribute('data-pswp-height')) || 600,
+                    title: link.querySelector('img').getAttribute('alt') || ''
                 });
             });
             
-            // Initialize PhotoSwipe
-            const lightbox = new PhotoSwipeLightbox({
-                dataSource: items,
-                pswpModule: PhotoSwipe,
-                index: index
-            });
-            
-            lightbox.init();
-            lightbox.loadAndOpen(index);
+            // Initialize PhotoSwipe with error handling
+            try {
+                const lightbox = new PhotoSwipeLightbox({
+                    dataSource: items,
+                    pswpModule: PhotoSwipe,
+                    index: index
+                });
+                
+                lightbox.init();
+                lightbox.loadAndOpen(index);
+            } catch (error) {
+                console.error('PhotoSwipe initialization failed:', error);
+                // Use simple lightbox fallback
+                const imageSrc = clickedGallery.getAttribute('href');
+                const imageAlt = clickedGallery.querySelector('img').getAttribute('alt');
+                createSimpleLightbox(imageSrc, imageAlt);
+            }
+        });
+    });
+}
+
+// Fallback lightbox for when PhotoSwipe is not available
+function initFallbackLightbox() {
+    const imageLinks = document.querySelectorAll('.image-container a');
+    
+    imageLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const imageSrc = link.getAttribute('href');
+            const imageAlt = link.querySelector('img').getAttribute('alt');
+            createSimpleLightbox(imageSrc, imageAlt);
         });
     });
 }
