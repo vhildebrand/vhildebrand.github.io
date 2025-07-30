@@ -291,3 +291,215 @@ footer nav a.active {
 .project[data-aos="fade-up"].aos-animate {
     animation: fadeInUp 0.8s ease forwards;
 }
+
+/* Enhanced More Button - Blog Post View */
+.project-detail-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.project-detail-view.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-detail-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem 2rem;
+    gap: 4rem;
+    min-height: calc(100vh - 12rem);
+}
+
+.project-detail-text {
+    flex: 1;
+    max-width: 60%;
+}
+
+.project-detail-images {
+    flex: 0 0 35%;
+    position: sticky;
+    top: 8rem;
+    height: fit-content;
+}
+
+.project-detail-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInTitle 0.8s ease forwards;
+}
+
+.project-detail-subtitle {
+    font-family: 'Courier New', Courier, monospace;
+    color: #666;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInTitle 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.blog-content p {
+    margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.blog-content p.typing {
+    opacity: 1;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #333;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeInTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-detail-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-detail-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(30px);
+    opacity: 0;
+    animation: slideInRight 0.8s ease forwards;
+}
+
+.project-detail-image:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.close-detail-view {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.close-detail-view:hover {
+    color: #000;
+}
+
+.projects-faded {
+    opacity: 0.3;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+.projects-faded .project:not(.active-project) {
+    opacity: 0.1;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Tags in detail view */
+.project-detail-tags {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.project-detail-tags h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+    font-weight: normal;
+}
+
+.project-detail-tags .project-tags {
+    margin-top: 0;
+}
+
+/* Responsive for detail view */
+@media (max-width: 768px) {
+    .project-detail-content {
+        flex-direction: column;
+        padding: 6rem 1rem 4rem 1rem;
+        gap: 2rem;
+    }
+    
+    .project-detail-text {
+        max-width: 100%;
+    }
+    
+    .project-detail-images {
+        flex: none;
+        position: static;
+        order: -1;
+    }
+    
+    .project-detail-title {
+        font-size: 2rem;
+    }
+    
+    .project-detail-images-container {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+    
+    .project-detail-image {
+        flex: 0 0 70%;
+        transform: translateY(30px);
+        animation: slideInUp 0.8s ease forwards;
+    }
+    
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

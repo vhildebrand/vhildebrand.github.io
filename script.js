@@ -153,41 +153,174 @@ function initFallbackLightbox() {
     });
 }
 
-// More/Less toggle with smooth animation
+// Enhanced More/Less toggle with blog post view
 function initToggleMore() {
     document.querySelectorAll('.toggle-more').forEach(toggle => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
-            const moreContent = this.previousElementSibling;
+            const project = this.closest('.project');
             
-            if (moreContent.style.display === 'none' || moreContent.style.display === '') {
-                // Show content with smooth animation
-                moreContent.style.display = 'block';
-                moreContent.style.opacity = '0';
-                moreContent.style.transform = 'translateY(-10px)';
-                
-                // Trigger animation
-                requestAnimationFrame(() => {
-                    moreContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    moreContent.style.opacity = '1';
-                    moreContent.style.transform = 'translateY(0)';
-                });
-                
+            if (this.textContent === 'More') {
+                showProjectDetail(project);
                 this.textContent = 'Less';
             } else {
-                // Hide content with smooth animation
-                moreContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                moreContent.style.opacity = '0';
-                moreContent.style.transform = 'translateY(-10px)';
-                
-                setTimeout(() => {
-                    moreContent.style.display = 'none';
-                }, 300);
-                
+                hideProjectDetail();
                 this.textContent = 'More';
             }
         });
     });
+}
+
+function showProjectDetail(project) {
+    // Get project data
+    const title = project.querySelector('h2').textContent;
+    const subtitle = project.querySelector('.project-year').textContent;
+    const moreContent = project.querySelector('.more-content p').textContent;
+    const images = project.querySelectorAll('.project-image');
+    const tags = project.querySelectorAll('.tag');
+    
+    // Create detail view
+    const detailView = document.createElement('div');
+    detailView.className = 'project-detail-view';
+    detailView.innerHTML = `
+        <button class="close-detail-view">&times;</button>
+        <div class="project-detail-content">
+            <div class="project-detail-text">
+                <h1 class="project-detail-title">${title}</h1>
+                <p class="project-detail-subtitle">${subtitle}</p>
+                <div class="blog-content">
+                    <p>${moreContent}</p>
+                    <p>This project represents a significant step forward in the field, combining cutting-edge technology with thoughtful design principles. The development process involved extensive research, prototyping, and iteration to achieve the final result.</p>
+                    <p>Key challenges overcome during development included scalability concerns, user experience optimization, and integration with existing systems. The solution employs modern architectural patterns and best practices to ensure maintainability and performance.</p>
+                    <p>The impact of this work extends beyond the immediate application, contributing to broader understanding of the problem space and providing a foundation for future innovations in the domain.</p>
+                </div>
+                <div class="project-detail-tags">
+                    <h3>Technologies Used</h3>
+                    <div class="project-tags">
+                        ${Array.from(tags).map(tag => `<span class="tag">${tag.textContent}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+            <div class="project-detail-images">
+                <div class="project-detail-images-container">
+                    ${Array.from(images).map(img => `<img src="${img.src}" alt="${img.alt}" class="project-detail-image">`).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(detailView);
+    
+    // Fade other projects
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    main.classList.add('projects-faded');
+    footer.classList.add('projects-faded');
+    project.classList.add('active-project');
+    
+    // Show detail view
+    requestAnimationFrame(() => {
+        detailView.classList.add('active');
+        startTypingAnimation(detailView);
+    });
+    
+    // Add close functionality
+    const closeBtn = detailView.querySelector('.close-detail-view');
+    closeBtn.addEventListener('click', hideProjectDetail);
+    
+    // Close on escape key
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            hideProjectDetail();
+        }
+    };
+    document.addEventListener('keyup', handleEscape);
+    
+    // Store cleanup function
+    detailView._cleanup = () => {
+        document.removeEventListener('keyup', handleEscape);
+    };
+}
+
+function hideProjectDetail() {
+    const detailView = document.querySelector('.project-detail-view');
+    if (detailView) {
+        // Cleanup event listeners
+        if (detailView._cleanup) {
+            detailView._cleanup();
+        }
+        
+        // Hide detail view
+        detailView.classList.remove('active');
+        
+        // Restore projects
+        const main = document.querySelector('main');
+        const footer = document.querySelector('footer');
+        main.classList.remove('projects-faded');
+        footer.classList.remove('projects-faded');
+        document.querySelectorAll('.project').forEach(p => p.classList.remove('active-project'));
+        
+        // Reset toggle buttons
+        document.querySelectorAll('.toggle-more').forEach(toggle => {
+            toggle.textContent = 'More';
+        });
+        
+        // Remove detail view after animation
+        setTimeout(() => {
+            if (detailView.parentNode) {
+                detailView.parentNode.removeChild(detailView);
+            }
+        }, 600);
+    }
+}
+
+function startTypingAnimation(detailView) {
+    const paragraphs = detailView.querySelectorAll('.blog-content p');
+    let currentParagraph = 0;
+    
+    function typeParagraph(paragraph, text, callback) {
+        paragraph.classList.add('typing');
+        paragraph.innerHTML = '';
+        
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        paragraph.appendChild(cursor);
+        
+        let charIndex = 0;
+        
+        function typeCharacter() {
+            if (charIndex < text.length) {
+                const textNode = document.createTextNode(text.charAt(charIndex));
+                paragraph.insertBefore(textNode, cursor);
+                charIndex++;
+                
+                // Variable typing speed for natural feel
+                const delay = Math.random() * 30 + 20;
+                setTimeout(typeCharacter, delay);
+            } else {
+                // Remove cursor and call callback
+                cursor.remove();
+                if (callback) callback();
+            }
+        }
+        
+        // Start typing after a short delay
+        setTimeout(typeCharacter, 800 + (currentParagraph * 200));
+    }
+    
+    function processNextParagraph() {
+        if (currentParagraph < paragraphs.length) {
+            const paragraph = paragraphs[currentParagraph];
+            const text = paragraph.textContent;
+            
+            typeParagraph(paragraph, text, () => {
+                currentParagraph++;
+                setTimeout(processNextParagraph, 300);
+            });
+        }
+    }
+    
+    processNextParagraph();
 }
 
 // Project filtering
