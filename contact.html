@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Aleksei Miles</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .contact-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .contact-content h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-info a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            transition: border-bottom-color 0.2s ease;
+        }
+        
+        .contact-info a:hover {
+            border-bottom-color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 1rem;
+            }
+            
+            .contact-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1><a href="index.html" style="text-decoration: none; color: inherit;">aleksei miles</a></h1>
+            <p>machine learning engineer</p>
+            <nav>
+                <a href="about.html">About</a>
+                <a href="index.html">Portfolio</a>
+                <a href="contact.html" style="text-decoration: underline;">Contact</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div id="clock"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2>Aleksei Miles</h2>
+                <div class="contact-info">
+                    <p>Feel free to reach out if you'd like to collaborate on a project or just want to chat about machine learning, software engineering, or creative technology.</p>
+                    
+                    <p>Email: <a href="mailto:milesaleksei@gmail.com">milesaleksei@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
