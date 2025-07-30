@@ -7,136 +7,37 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .about-container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 2rem 0;
         }
         
-        .resume-section {
-            margin-bottom: 3rem;
+        .about-text {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards;
         }
         
-        .resume-section:nth-child(2) { animation-delay: 0.1s; }
-        .resume-section:nth-child(3) { animation-delay: 0.2s; }
-        .resume-section:nth-child(4) { animation-delay: 0.3s; }
-        .resume-section:nth-child(5) { animation-delay: 0.4s; }
-        .resume-section:nth-child(6) { animation-delay: 0.5s; }
-        
-        .resume-section h2 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 0.5rem;
-        }
-        
-        .job, .education-item, .skill-category {
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
             margin-bottom: 2rem;
-        }
-        
-        .job-header, .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-        
-        .job-title, .degree {
-            font-weight: 500;
-            font-size: 1rem;
-        }
-        
-        .company, .school {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .date {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            color: #888;
-        }
-        
-        .job-description {
-            margin-top: 0.75rem;
-        }
-        
-        .job-description ul {
-            margin: 0;
-            padding-left: 1.2rem;
-        }
-        
-        .job-description li {
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category h3 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
             color: #333;
         }
         
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .skill-tag {
-            background-color: #f8f8f8;
-            padding: 0.3rem 0.7rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: #555;
-            border: 1px solid #e8e8e8;
-        }
-        
-        .contact-info {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 3rem;
-        }
-        
-        .contact-info p {
-            margin: 0.5rem 0;
-            color: #666;
-        }
-        
-        .contact-info a {
-            color: #000;
-            text-decoration: none;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
+        .about-text p:last-child {
+            margin-bottom: 0;
         }
         
         @media (max-width: 768px) {
-            .job-header, .education-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .about-container {
+                padding: 1rem;
             }
             
-            .date {
-                margin-top: 0.25rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .about-text p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
             }
         }
     </style>
@@ -159,130 +60,12 @@
 
     <main>
         <div class="about-container">
-            
-
-            <div class="resume-section">
-                <h2>Education</h2>
-
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <div class="degree">AI Engineering Fellowship</div>
-                            <div class="school">Gauntlet AI</div>
-                        </div>
-                        <div class="date">2025 — Present</div>
-                    </div>
-                    <p>Focus: Machine Learning and Artificial Intelligence<br></p>
-                </div>
+            <div class="about-text">
+                <p>I'm a machine learning and software engineer. Interested in deep learning and scalable software.</p>
                 
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <div class="degree">B.S. in Computer Science</div>
-                            <div class="school">George Mason University</div>
-                        </div>
-                        <div class="date">2022 — 2025</div>
-                        <p>Focus: Machine Learning and Artificial Intelligence<br>
-                    </div>
-                </div>
-
-               
-            </div>
-
-            <div class="resume-section">
-                <h2>Experience</h2>
+                <p>Currently working through the AI Engineering Fellowship at Gauntlet AI.</p>
                 
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Machine Learning Engineer Intern</div>
-                            <div class="company">Washington DC</div>
-                        </div>
-                        <div class="date">2023 — 2024</div>
-                    </div>
-                    <div class="job-description">
-                        <ul>
-                            <li>Researched and developed convolutional neural networks for anomaly detection in signal and image data for defense applications</li>
-                            <li>Created model architectures for compute-constrained classification tasks</li>
-                            <li>Built DSP pipelines for signal data preprocessing and image segmentation</li>
-                            <li>Monitored model performance and created observability infrastructure</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="job">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Undergraduate Mathematics Researcher</div>
-                            <div class="company">Experimental Geometry Lab</div>
-                        </div>
-                        <div class="date">2023 — 2024</div>
-                    </div>
-                    <div class="job-description">
-                        <ul>
-                            <li>Researched efficient monte carlo sampling methods for arbitrary probability distributions</li>
-                            <li>Developed a scalable predictive model for simulating crop growth and optimizing seasonal yield</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="resume-section">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">CUDA</span>                            
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>ML/AI Frameworks</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">PyTorch</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Infrastructure</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Web Technologies</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Flask</span>
-                            <span class="skill-tag">FastAPI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resume-section">
-                <h2>Selected Writing</h2>
-                <ul>
-                </ul>
-            </div>
-
-            <div class="contact-info">
-                <p><strong>Contact Information</strong></p>
-                <p>Email: <a href="mailto:milesaleksei@gmail.com">milesaleksei@gmail.com</a></p>
-                <p>GitHub: <a href="https://github.com/vhildebrand">github.com/vhildebrand</a></p>
+                <p>Previously, I designed deep-learning architectures for anomaly detection and worked on model distillation techniques in Washington, D.C.</p>
             </div>
         </div>
     </main>
